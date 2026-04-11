@@ -1,0 +1,13 @@
+# Skopiuj jako terraform.tfvars i uzupełnij swoimi danymi
+# cp terraform.tfvars.example terraform.tfvars
+
+# ZMIEŃ: wpisz swoje imię i nazwisko
+student_name = "jan-kowalski"
+
+environment       = "dev"
+enable_versioning = false
+
+tags = {
+  Uczelnia = "WSB-NLU"
+  Kurs     = "Infrastruktura-Chmurowa"
+}

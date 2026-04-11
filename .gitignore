@@ -1,0 +1,11 @@
+# Terraform – NIE dodawaj tych plikow do Git 
+.terraform/ 
+*.tfstate 
+*.tfstate.backup 
+.terraform.lock.hcl 
+*.tfvars 
+tfplan 
+ 
+# System 
+.DS_Store 
+Thumbs.db 

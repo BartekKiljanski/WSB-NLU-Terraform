@@ -3,6 +3,7 @@
 *.tfstate.backup
 .terraform.lock.hcl
 *.tfvars
+terraform.tfvars
 tfplan
 .DS_Store
 Thumbs.db

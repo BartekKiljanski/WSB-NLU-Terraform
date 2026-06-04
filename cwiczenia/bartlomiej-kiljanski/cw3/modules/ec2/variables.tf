@@ -23,11 +23,6 @@ variable "environment" {
   type        = string
 }
 
-variable "student_name" {
-  description = "Student name used in tags and user data"
-  type        = string
-}
-
 variable "name_prefix" {
   description = "Common prefix for resource names"
   type        = string

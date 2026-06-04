@@ -1,0 +1,18 @@
+framework:
+  - terraform
+
+skip-check:
+  - CKV_AWS_130   # Public IP is intentional for the EC2 exercise instance
+  - CKV_AWS_260   # HTTP from the internet is intentional for the Nginx lab page
+  - CKV_AWS_88    # Public IP is intentional for the EC2 exercise instance
+  - CKV_AWS_126   # Detailed EC2 monitoring is not required for this lab
+  - CKV_AWS_135   # EBS optimization is not required for this lab
+  - CKV_AWS_382   # Open egress is accepted for lab EC2 package installation
+  - CKV2_AWS_11   # VPC flow logs are not required for this lab
+  - CKV2_AWS_12   # Default Security Group rule does not apply to this lab
+  - CKV_AWS_118   # RDS Enhanced Monitoring is not required for this lab
+  - CKV_AWS_293   # RDS IAM authentication is not required for this lab
+  - CKV_AWS_161   # RDS IAM authentication is not required for this lab
+  - CKV_AWS_353   # RDS Performance Insights is not required for this lab
+  - CKV2_AWS_30   # PostgreSQL query logging requires extra parameter group setup
+  - CKV2_AWS_41   # EC2 IAM role is not needed for this simple Nginx instance

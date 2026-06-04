@@ -72,7 +72,6 @@ module "ec2" {
   ami_id           = data.aws_ami.amazon_linux.id
   instance_type    = local.settings.instance_type
   environment      = var.environment
-  student_name     = var.student_name
   name_prefix      = local.name_prefix
   ssh_cidr         = var.ssh_cidr
   enable_public_ip = var.enable_public_ip

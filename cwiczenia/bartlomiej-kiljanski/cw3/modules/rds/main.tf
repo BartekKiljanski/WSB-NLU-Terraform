@@ -11,14 +11,6 @@ resource "aws_security_group" "main" {
     security_groups = [var.ec2_security_group_id]
   }
 
-  egress {
-    description = "All outbound traffic"
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   tags = merge(
     var.tags,
     {
@@ -40,22 +32,26 @@ resource "aws_db_subnet_group" "main" {
 }
 
 resource "aws_db_instance" "main" {
-  identifier              = "${var.name_prefix}-db"
-  engine                  = "postgres"
-  engine_version          = "15"
-  instance_class          = var.db_instance_class
-  allocated_storage       = var.allocated_storage
-  db_name                 = "appdb"
-  username                = "appuser"
-  password                = var.db_password
-  port                    = 5432
-  vpc_security_group_ids  = [aws_security_group.main.id]
-  db_subnet_group_name    = aws_db_subnet_group.main.name
-  publicly_accessible     = false
-  multi_az                = var.multi_az
-  deletion_protection     = var.deletion_protection
-  backup_retention_period = var.backup_retention_period
-  skip_final_snapshot     = true
+  identifier                      = "${var.name_prefix}-db"
+  engine                          = "postgres"
+  engine_version                  = "15"
+  instance_class                  = var.db_instance_class
+  allocated_storage               = var.allocated_storage
+  db_name                         = "appdb"
+  username                        = "appuser"
+  password                        = var.db_password
+  port                            = 5432
+  vpc_security_group_ids          = [aws_security_group.main.id]
+  db_subnet_group_name            = aws_db_subnet_group.main.name
+  publicly_accessible             = false
+  multi_az                        = var.multi_az
+  deletion_protection             = var.deletion_protection
+  backup_retention_period         = var.backup_retention_period
+  storage_encrypted               = true
+  auto_minor_version_upgrade      = true
+  copy_tags_to_snapshot           = true
+  enabled_cloudwatch_logs_exports = ["postgresql"]
+  skip_final_snapshot             = true
 
   tags = merge(
     var.tags,

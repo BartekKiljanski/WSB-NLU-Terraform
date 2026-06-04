@@ -57,4 +57,12 @@ resource "aws_instance" "main" {
       Name = "${var.name_prefix}-ec2"
     }
   )
+
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
 }

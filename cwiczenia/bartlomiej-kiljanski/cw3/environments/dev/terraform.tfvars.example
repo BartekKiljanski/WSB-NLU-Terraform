@@ -1,0 +1,9 @@
+student_name     = "bartlomiej-kiljanski"
+environment      = "dev"
+db_password      = "ChangeMe123!"
+enable_public_ip = true
+
+tags = {
+  Uczelnia = "WSB-NLU"
+  Kurs     = "Infrastruktura-Chmurowa"
+}
